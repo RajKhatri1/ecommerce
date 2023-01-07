@@ -28,6 +28,12 @@ class _HomeState extends State<Home> {
     "Iwatch",
     "MACBook",
   ];
+  List details = [
+    "256GB,\nSuper Retina XDR display,\nHDR display,True Tone\nWide colour (P3),Haptic Touch,/nCeramic Shield front Glass back and aluminium design",
+    "You can pair AirPods with your Apple devices to listen to music, movies, messages, and more. After you set up your AirPods with one Apple device (like your iPhone)",
+    "The standard Apple Watch comes in two case sizes, 38mm or 42mm, with an OLED display with an ambient light sensor to combat glare. Apple offers a premium Apple Watch Edition",
+  "Multitasking with iPad is more intuitive and powerful than ever. Work seamlessly across apps. Use Slide Over or Split View to work with multiple apps at the same time, and even drag and drop content between apps with touch or a trackpad.",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +86,7 @@ class _HomeState extends State<Home> {
                     children: img
                         .asMap()
                         .entries
-                        .map((e) => raj(img[e.key], price[e.key], name[e.key]))
+                        .map((e) => raj(img[e.key], price[e.key], name[e.key],details[e.key]))
                         .toList(),
                   ),
                 ],
@@ -92,7 +98,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget raj(dynamic img, dynamic price, dynamic name) {
+  Widget raj(dynamic img, dynamic price, dynamic name,dynamic details) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
@@ -100,7 +106,7 @@ class _HomeState extends State<Home> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Detail(img, name, price),
+                builder: (context) => Detail(img, name, price, details),
               ));
         },
         child: Container(
